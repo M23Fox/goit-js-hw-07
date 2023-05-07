@@ -19,10 +19,15 @@ itemsBox.addEventListener('click', onImageClick);
 
 function onImageClick(event) {
   event.preventDefault();
-  if (!event.target.classList.contains('gallery')) {
+  if (event.target.classList.contains('gallery')) {
     return;
   }
-  console.log(event.target);
+  
+  const instance = basicLightbox.create(`
+    <img src=${event.target.dataset.source} width=100% height=100%>
+`)
+
+instance.show()
 }
 
  const closeModal = (event) => {
@@ -31,3 +36,6 @@ function onImageClick(event) {
     }
   }
 
+// function defAction(event) {
+//    event.preventDefault();
+// }
