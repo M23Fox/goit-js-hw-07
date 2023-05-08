@@ -1,9 +1,8 @@
 import { galleryItems } from './gallery-items.js';
 // Change code below this line
 const itemsBox = document.querySelector('.gallery');
-const galleryBox = galleryItems
-    .map(({ preview, original, description }) =>         `
-        <li class="gallery__item">
+const galleryMarkup = galleryItems
+  .map(({ preview, original, description }) => ` <li class="gallery__item">
           <a class="gallery__link" href="${original}">
             <img class="gallery__image"
                 src="${preview}"
@@ -12,8 +11,8 @@ const galleryBox = galleryItems
           </a>
         </li>`)
       .join('');  
-    
-itemsBox.insertAdjacentHTML('beforeend', galleryBox);
+console.log(galleryMarkup);    
+itemsBox.insertAdjacentHTML('beforeend', galleryMarkup);
 
 // itemsBox.addEventListener('click', onImageClick);
 
