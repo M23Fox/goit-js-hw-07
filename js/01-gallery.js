@@ -19,23 +19,23 @@ itemsBox.addEventListener('click', onImageClick);
 
 function onImageClick(event) {
   event.preventDefault();
-  if (event.target.classList.contains('gallery')) {
-    return;
-  }
   
-  const instance = basicLightbox.create(`
-    <img src=${event.target.dataset.source} width=100% height=100%>
-`)
+  if (!event.target.classList.contains('gallery')) {
+   
+    const instance = basicLightbox.create(`
+    <img src= "${event.target.dataset.source}" width=100% height=100%>`)
 
-instance.show()
-}
-
- const closeModal = (event) => {
+    instance.show()
+    window.addEventListener('keydown', closeByEsc);
+    
+function closeByEsc(event) {
     if (event.code === 'Escape') {
       instance.close();
     }
+  return;
   }
 
-// function defAction(event) {
-//    event.preventDefault();
-// }
+return;
+  }
+  
+}
